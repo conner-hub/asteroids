@@ -8,7 +8,7 @@ def main():
     pygame.init()
     print("Starting Asteroids!\nScreen width: 1280\nScreen height: 720")
     gameactive = True
-    
+    dt = 0
     #Initialize the clock.
     clock = pygame.time.Clock()
     #Initialize the player
@@ -18,6 +18,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        player.update(dt)
         screen.fill((0,0,0), rect=None)
         player.draw(screen)
         pygame.display.flip()
